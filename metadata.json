@@ -1,0 +1,6 @@
+{
+  "name": "Obiady Domowe Aleksandrów Łódzki",
+  "description": "Oficjalna strona restauracji Obiady Domowe przy placu Kościuszki 11 w Aleksandrowie Łódzkim. Tradycyjne domowe obiady, burgery, catering, dostawa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

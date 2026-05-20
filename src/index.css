@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Mono:wght@400;500&family=Nunito:wght@400;500;700;800&family=Playfair+Display:wght@700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg:              #FCFAF7;        /* warm ivory / linen white */
+  --bg-section:      #F5F2EB;        /* soft warm stone white */
+  --bg-warm:         #ECE8DF;        /* cozy sand white */
+  --bg-dark:         #1C1C1A;        /* sophisticated deep matte dark */
+  --bg-darker:       #121211;        /* extra deep dark */
+  --bg-mid:          #2A2A28;        /* soft mid charcoal charcoal */
+  --bg-card-dark:    #262624;        /* dark card body */
+  --grey:            #333331;        /* deep charcoal grey */
+  --grey-mid:        #5C5C58;
+  --grey-light:      #8F8F8A;
+  --grey-pale:       #E8E5DF;
+  --grey-subtle:     rgba(51,51,49,0.05);
+  --orange:          #C2571A;        /* rich, mature terracotta brand color */
+  --orange-deep:     #9A4110;        /* rich burnt amber */
+  --orange-light:    #E98D4F;        /* gourmet warm glow */
+  --orange-pale:     #FDF2E9;        /* soft gourmet peach cream */
+  --orange-subtle:   rgba(194,87,26,0.08);
+  --orange-glow:     rgba(194,87,26,0.15);
+  --cream:           #FAF6F0;
+  --text:            #222220;
+  --text-muted:      #5C5C58;
+  --text-light:      #FCFAF7;
+  --text-pale:       rgba(252,250,247,0.75);
+  --border:          rgba(51,51,49,0.07);
+  --border-orange:   rgba(194,87,26,0.2);
+  --border-dark:     rgba(252,250,247,0.06);
+}
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Nunito", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --font-handwritten: "Caveat", cursive;
+
+  --color-brand-bg: var(--bg);
+  --color-brand-bg-section: var(--bg-section);
+  --color-brand-bg-warm: var(--bg-warm);
+  --color-brand-bg-dark: var(--bg-dark);
+  --color-brand-bg-darker: var(--bg-darker);
+  --color-brand-bg-mid: var(--bg-mid);
+  --color-brand-bg-card-dark: var(--bg-card-dark);
+
+  --color-brand-grey: var(--grey);
+  --color-brand-grey-mid: var(--grey-mid);
+  --color-brand-grey-light: var(--grey-light);
+  --color-brand-grey-pale: var(--grey-pale);
+
+  --color-brand-orange: var(--orange);
+  --color-brand-orange-deep: var(--orange-deep);
+  --color-brand-orange-light: var(--orange-light);
+  --color-brand-orange-pale: var(--orange-pale);
+
+  --color-brand-cream: var(--cream);
+  --color-brand-text: var(--text);
+  --color-brand-text-muted: var(--text-muted);
+  --color-brand-text-light: var(--text-light);
+
+  --animate-steam-1: steam1 3s ease-in-out infinite;
+  --animate-steam-2: steam2 3s ease-in-out infinite 1.5s;
+  --animate-bob: bob 4s ease-in-out infinite;
+  --animate-sway: sway 5s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Custom animations keyframes */
+@keyframes steam1 {
+  0% { transform: translateY(0) scaleX(1); opacity: 0; }
+  15% { opacity: 0.5; }
+  50% { transform: translateY(-15px) scaleX(1.2); opacity: 0.3; }
+  100% { transform: translateY(-30px) scaleX(0.8); opacity: 0; }
+}
+
+@keyframes steam2 {
+  0% { transform: translateY(0) scaleX(0.9); opacity: 0; }
+  15% { opacity: 0.4; }
+  50% { transform: translateY(-18px) scaleX(1.1); opacity: 0.2; }
+  100% { transform: translateY(-32px) scaleX(0.7); opacity: 0; }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1.5deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-section);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--grey-pale);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--orange);
+}
+
+/* Core layouts & elements */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom class styles to fulfill design brief requirements directly */
+
+/* Section header accent border animation on load/scroll */
+.section-underline {
+  position: relative;
+  display: inline-block;
+}
+.section-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 2.5px;
+  background-color: var(--orange);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.section-underline:hover::after {
+  width: 72px;
+}
+
+/* Light Section Cards details and borders */
+.bistro-card-light {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(51, 51, 49, 0.05);
+  box-shadow: 0 4px 20px rgba(51, 51, 49, 0.03), 0 1px 3px rgba(51, 51, 49, 0.01);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.bistro-card-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.bistro-card-light:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 38px rgba(194, 87, 26, 0.06), 0 1px 5px rgba(194, 87, 26, 0.01);
+  border-color: rgba(194, 87, 26, 0.12);
+}
+.bistro-card-light:hover::before {
+  transform: scaleX(1);
+}
+
+/* Dark Section Cards details and borders */
+.bistro-card-dark {
+  background-color: var(--bg-card-dark);
+  border: 1px solid var(--border-dark);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bistro-card-dark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--orange);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.bistro-card-dark:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  border-color: rgba(194, 87, 26, 0.25);
+}
+.bistro-card-dark:hover::before {
+  transform: scaleY(1);
+}
+
+/* Chalkboard style display */
+.chalkboard-card {
+  background-color: #21211F;
+  border-radius: 18px;
+  border: 1px solid rgba(250, 250, 247, 0.04);
+  box-shadow: 0 20px 48px rgba(18, 18, 17, 0.15);
+  position: relative;
+}
+.chalkboard-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--orange);
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.chalkboard-font {
+  font-family: "Caveat", cursive;
+}
+
+.mono-font {
+  font-family: "DM Mono", monospace;
+}
+
+.display-font {
+  font-family: "Playfair Display", serif;
+}
