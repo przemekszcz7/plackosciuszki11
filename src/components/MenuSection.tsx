@@ -99,14 +99,16 @@ export default function MenuSection() {
             >
               <div>
                 {/* Header of Item */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-2">
-                    {getIconForCategory(item.category)}
-                    <h3 className="display-font font-bold text-lg md:text-xl text-brand-text leading-tight group-hover:text-brand-orange">
+                <div className="flex flex-col xs:flex-row xs:items-start justify-between gap-x-4 gap-y-2">
+                  <div className="flex items-start gap-2 min-w-0">
+                    <div className="mt-1 shrink-0">
+                      {getIconForCategory(item.category)}
+                    </div>
+                    <h3 className="display-font font-bold text-base md:text-lg text-brand-text leading-tight group-hover:text-brand-orange break-words min-w-0">
                       {item.name}
                     </h3>
                   </div>
-                  <span className="mono-font text-brand-orange font-bold text-base whitespace-nowrap">
+                  <span className="mono-font text-brand-orange font-bold text-sm md:text-base whitespace-normal xs:whitespace-nowrap shrink-0 xs:text-right">
                     {item.price}
                   </span>
                 </div>
